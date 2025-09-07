@@ -1231,14 +1231,13 @@ class VQATokenLabelEncode(object):
     def _load_ocr_info(self, data):
         if self.infer_mode:
             ocr_result = self.ocr_engine.ocr(data["image"])[0]
-            print(ocr_result)
             ocr_info = []
-            for res in ocr_result:
+            for text, poly in zip(ocr_result['rec_texts'], ocr_result['rec_polys']):
                 ocr_info.append(
                     {
-                        "transcription": res[1][0],
-                        "bbox": self.trans_poly_to_bbox(res[0]),
-                        "points": res[0],
+                        "transcription": text,
+                        "bbox": self.trans_poly_to_bbox(poly),
+                        "points": poly,
                     }
                 )
             return ocr_info
