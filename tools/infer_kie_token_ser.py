@@ -155,7 +155,7 @@ if __name__ == "__main__":
             )
 
             result, _ = ser_engine(data)
-            result = result['Student'][0]
+            result = result['Teacher'][0]
             result = [{**item, 'points': item['points'].tolist()} for item in result]            
             fout.write(
                 img_path
