@@ -116,9 +116,7 @@ class SerPredictor(object):
 
         post_result = self.post_process_class(
             preds, segment_offset_ids=batch[6], ocr_infos=batch[7]
-        )
-        print(post_result[0])
-        # post_result = [{**item, 'points':item['points'].tolist()} for item in post_result]
+        )        
         return post_result, batch
 
 
@@ -157,7 +155,8 @@ if __name__ == "__main__":
 
             result, _ = ser_engine(data)
             result = result['Student'][0]
-            print(result)
+            print(result[0])
+            result = [{**item, 'points': item['points'].tolist()} for item in result]            
             fout.write(
                 img_path
                 + "\t"
