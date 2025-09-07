@@ -1230,7 +1230,7 @@ class VQATokenLabelEncode(object):
 
     def _load_ocr_info(self, data):
         if self.infer_mode:
-            ocr_result = self.ocr_engine.ocr(data["image"], cls=False)[0]
+            ocr_result = self.ocr_engine.ocr(data["image"])[0]
             ocr_info = []
             for res in ocr_result:
                 ocr_info.append(
