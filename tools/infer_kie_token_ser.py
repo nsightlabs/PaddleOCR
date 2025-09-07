@@ -158,16 +158,6 @@ if __name__ == "__main__":
             result = result['Student'][0]
             required_fields = ['transcription', 'bbox', 'points', 'pred_id', 'pred']
             result = [{**item, 'points': item['points'].tolist()} for item in result if all(field in item for field in required_fields)]            
-            fout.write(
-                img_path
-                + "\t"
-                + json.dumps(
-                    {
-                        "ocr_info": result,
-                    },
-                    ensure_ascii=False,
-                )
-                + "\n"
-            )
+            fout.write(substr[0] + "\t" + json.dumps(result, ensure_ascii=False) + "\n")
             img_res = draw_ser_results(img_path, result)
             cv2.imwrite(save_img_path, img_res)
