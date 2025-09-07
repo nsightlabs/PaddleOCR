@@ -67,11 +67,11 @@ class NLPBaseModel(nn.Layer):
             pretrained_model_name = pretrained_model_dict[base_model_class][mode]
             if type == "ser":
                 self.model = model_class.from_pretrained(
-                    pretrained_model_name, num_classes=kwargs["num_classes"], dropout=0
+                    pretrained_model_name, num_classes=kwargs["num_classes"], dropout=0, ignore_mismatched_sizes=True
                 )
             else:
                 self.model = model_class.from_pretrained(
-                    pretrained_model_name, dropout=0
+                    pretrained_model_name, dropout=0, ignore_mismatched_sizes=True
                 )
         self.out_channels = 1
         self.use_visual_backbone = True
