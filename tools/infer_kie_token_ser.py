@@ -117,6 +117,7 @@ class SerPredictor(object):
         post_result = self.post_process_class(
             preds, segment_offset_ids=batch[6], ocr_infos=batch[7]
         )
+        post_result = [{**item, 'points':item['points'].tolist()} for item in post_result]
         return post_result, batch
 
 
