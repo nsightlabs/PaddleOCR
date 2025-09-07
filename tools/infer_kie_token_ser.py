@@ -67,11 +67,9 @@ class SerPredictor(object):
         )
 
         # build model
-        self.model = build_model(config["Architecture"]) #TO INSPECT
-        print(f"model before loading\n{self.model}\n\n\n")
+        self.model = build_model(config["Architecture"])
 
-        load_model(config, self.model, model_type=config["Architecture"]["model_type"]) #TO INSPECT
-        print(f"model after loading\n{self.model}")
+        load_model(config, self.model, model_type=config["Architecture"]["model_type"])
 
         from paddleocr import PaddleOCR
 
