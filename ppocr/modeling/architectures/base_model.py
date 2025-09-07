@@ -77,6 +77,8 @@ class BaseModel(nn.Layer):
 
         self.return_all_feats = config.get("return_all_feats", False)
 
+        print(self.use_backbone, self.use_neck, self.use_head)
+
     def forward(self, x, data=None):
         y = dict()
         if self.use_transform:

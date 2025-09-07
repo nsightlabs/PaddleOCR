@@ -27,12 +27,9 @@ __all__ = ["build_model", "apply_to_static"]
 def build_model(config):
     config = copy.deepcopy(config)
     if not "name" in config:
-        print('name in config')
         arch = BaseModel(config)
     else:
-        print('name not in config')
         name = config.pop("name")
-        print(name)
         mod = importlib.import_module(__name__)
         arch = getattr(mod, name)(config)
     return arch
