@@ -154,7 +154,8 @@ if __name__ == "__main__":
             )
 
             result, _ = ser_engine(data)
-            print(result)
+            for key in result.keys():
+                print(key, len(result[key]))
             result = result[0]
             fout.write(
                 img_path
