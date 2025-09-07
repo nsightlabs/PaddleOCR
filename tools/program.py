@@ -522,7 +522,7 @@ def train(
                 if cur_metric[main_indicator] >= best_model_dict[main_indicator]:
                     best_model_dict.update(cur_metric)
                     best_model_dict["best_epoch"] = epoch
-                    prefix = "best_accuracy"
+                    prefix = "best"
                     if uniform_output_enabled:
                         export(
                             config,
@@ -543,7 +543,6 @@ def train(
                         ),
                         logger,
                         config,
-                        is_best=True,
                         prefix=prefix,
                         save_model_info=model_info,
                         best_model_dict=best_model_dict,
@@ -591,7 +590,6 @@ def train(
                 ),
                 logger,
                 config,
-                is_best=False,
                 prefix=prefix,
                 save_model_info=model_info,
                 best_model_dict=best_model_dict,
@@ -620,7 +618,6 @@ def train(
                 ),
                 logger,
                 config,
-                is_best=False,
                 prefix=prefix,
                 save_model_info=model_info,
                 best_model_dict=best_model_dict,
