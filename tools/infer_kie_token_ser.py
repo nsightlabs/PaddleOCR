@@ -30,6 +30,7 @@ import cv2
 import json
 import paddle
 
+from tqdm import tqdm
 from ppocr.data import create_operators, transform
 from ppocr.modeling.architectures import build_model
 from ppocr.postprocess import build_post_process
@@ -138,7 +139,7 @@ if __name__ == "__main__":
         "w",
         encoding="utf-8",
     ) as fout:
-        for idx, info in enumerate(infer_imgs):
+        for idx, info in tqdm(enumerate(infer_imgs), total=len(infer_imgs)):
             if config["Global"].get("infer_mode", None) is False:
                 data_line = info.decode("utf-8")
                 substr = data_line.strip("\n").split("\t")
