@@ -42,6 +42,7 @@ def draw_ser_results(
     except OSError:
         font = ImageFont.load_default()
     for ocr_info in ocr_results:
+        print(ocr_info.keys())
         if ocr_info["pred_id"] not in color_map:
             continue
         color = color_map[ocr_info["pred_id"]]
