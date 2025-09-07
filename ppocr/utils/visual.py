@@ -37,7 +37,10 @@ def draw_ser_results(
     img_new = image.copy()
     draw = ImageDraw.Draw(img_new)
 
-    font = ImageFont.truetype(font_path, font_size, encoding="utf-8")
+    try:
+        font = ImageFont.truetype(font_path, font_size, encoding="utf-8")
+    except OSError:
+        font = ImageFont.load_default()
     for ocr_info in ocr_results:
         if ocr_info["pred_id"] not in color_map:
             continue
