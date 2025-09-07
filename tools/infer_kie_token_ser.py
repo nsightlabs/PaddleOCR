@@ -155,6 +155,7 @@ if __name__ == "__main__":
 
             result, _ = ser_engine(data)
             result = result['Student'][0]
+            print(result)
             fout.write(
                 img_path
                 + "\t"
