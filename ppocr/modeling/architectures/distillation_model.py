@@ -56,5 +56,7 @@ class DistillationModel(nn.Layer):
     def forward(self, x, data=None):
         result_dict = dict()
         for idx, model_name in enumerate(self.model_name_list):
+            print(data)
             result_dict[model_name] = self.model_list[idx](x, data)
+            print('hello there')
         return result_dict
