@@ -76,10 +76,9 @@ class SerPredictor(object):
         from paddleocr import PaddleOCR
 
         self.ocr_engine = PaddleOCR(
-            use_angle_cls=False,
-            rec_model_dir=global_config.get("kie_rec_model_dir", None),
-            det_model_dir=global_config.get("kie_det_model_dir", None),
-            use_gpu=global_config["use_gpu"],
+            use_doc_orientation_classify=False,
+            use_doc_unwarping=False,
+            use_textline_orientation=False
         )
 
         # create data ops
