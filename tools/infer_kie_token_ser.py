@@ -155,7 +155,7 @@ if __name__ == "__main__":
             )
 
             result, _ = ser_engine(data)
-            result = result['Student'][0]
+            print(result)
             required_fields = ['transcription', 'bbox', 'points', 'pred_id', 'pred']
             result = [{**item, 'points': item['points'].tolist()} for item in result if all(field in item for field in required_fields)]            
             fout.write(os.path.basename(img_path) + "\t" + json.dumps(result, ensure_ascii=False) + "\n")
